@@ -86,6 +86,27 @@ services:
                 fluentd-retry-wait: '1s'
                 fluentd-max-retries: '30'
                 tag: ${LOG_OPT_TAG_PREFIX}.efk.nginx
+
+
+    app:
+        image: ${SPRING_BOOT_APP}
+        restart: always
+        ports:
+            - 81:80
+        networks:
+            - net
+        depends_on:
+            - kibana
+        logging:
+            driver: fluentd
+            options:
+                fluentd-address: localhost:24224
+                fluentd-async-connect: 'true'
+                fluentd-retry-wait: '1s'
+                fluentd-max-retries: '30'
+                tage: ${LOG_OPT_TAG_PREFIX}.efk.springboot
+
+
 networks:
     net:
         driver: bridge

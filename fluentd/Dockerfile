@@ -24,6 +24,7 @@ RUN apk update \
  && gem install bigdecimal -v 1.3.5 \
   && gem install fluent-plugin-detect-exceptions \
   && gem install fluent-plugin-concat \
+  && gem install fluent-plugin-elasticsearch \
  && apk del .build-deps \
  && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem
 
