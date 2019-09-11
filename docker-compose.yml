@@ -104,7 +104,7 @@ services:
                 fluentd-async-connect: 'true'
                 fluentd-retry-wait: '1s'
                 fluentd-max-retries: '30'
-                tage: ${LOG_OPT_TAG_PREFIX}.efk.springboot
+                tag: ${LOG_OPT_TAG_PREFIX}.efk.springboot
 
 
 networks:
